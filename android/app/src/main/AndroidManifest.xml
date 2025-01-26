@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="airfer_education"
+        android:label="Airfer"
         android:name="${applicationName}"
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher">

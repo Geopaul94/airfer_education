@@ -5,6 +5,7 @@ import 'package:airfer_education/presentation/widgets/price_container.dart';
 import 'package:airfer_education/utilities/functions/dress_caption.dart';
 import 'package:airfer_education/utilities/functions/dress_code.dart';
 import 'package:airfer_education/utilities/functions/random_price.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
