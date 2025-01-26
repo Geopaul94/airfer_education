@@ -4,16 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget customeProfileCircle(String imageUrl) {
   return Container(
-    width: 45.w, // Adjust the size as per your requirement
-    height: 45.h,
+    width: 50.w, 
+    height: 50.h,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
       border: Border.all(
-        color: Colors.white, // White border color
-        width: .5,         // Border width
+        color: Colors.white, 
+        width: 1,       
       ),
       image: DecorationImage(
-        image: AssetImage(imageUrl), // Pass the imageUrl here
+        image: AssetImage(imageUrl), 
         fit: BoxFit.cover,
       ),
     ),

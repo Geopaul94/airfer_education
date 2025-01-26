@@ -15,7 +15,6 @@ class SpinningLine extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             // Use a percentage of the parent's constraints
-            double size = constraints.biggest.shortestSide * 0.6; 
             return SpinKitSpinningLines(
               color: grey,
               size:150.w,

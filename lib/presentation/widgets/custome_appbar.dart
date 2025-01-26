@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:airfer_education/presentation/widgets/custome_elevatedbutton.dart';
@@ -11,31 +9,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
 
-  CustomAppBar({super.key})
-      : preferredSize = Size.fromHeight(kToolbarHeight);
+  CustomAppBar({super.key}) : preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
         icon: Icon(
-          CupertinoIcons.back, 
-          color: Colors.grey,  
+          CupertinoIcons.back,
+          color: Colors.grey,
         ),
-        onPressed: () {
-        
-        },
+        onPressed: () {},
       ),
-      backgroundColor: Colors.black, 
-      elevation: 0, 
+      backgroundColor: Colors.black,
+      elevation: 1,
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: Row(
             children: [
-             customeProfileCircle('assets/10.jpg'),
-              SizedBox(width: 15.w),
-         customMaterialButton(   'Follow ',  color: buttoncolor,height: 45.h,width: 85.w   ),
+              customeProfileCircle('assets/10.jpg'),
+              w20,
+              customMaterialButton('Follow ',
+                  color: buttoncolor, ),
             ],
           ),
         ),
@@ -43,5 +39,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-
-

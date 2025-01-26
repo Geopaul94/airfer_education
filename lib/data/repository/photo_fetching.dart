@@ -9,7 +9,10 @@ import 'dart:io';
 
 class PexelsApiService {
   final String apiKey = 'FeJ8k3eJyELP82hkVGudyqdleoGQqeBLTyzCgwplrsKfVrnkYuduFbBY';
-  final String apiUrl = 'https://api.pexels.com/v1/search';
+final String apiUrl = 'https://api.pexels.com/v1/search';
+
+   
+
 
   Future<List<ImageModel>> fetchClothingModelImages(int page) async {
     try {

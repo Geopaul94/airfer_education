@@ -1,21 +1,17 @@
-
-
 import 'package:airfer_education/utilities/constants/constants.dart';
 import 'package:flutter/material.dart';
 
-Widget customMaterialButton(String title, {Color? color, double? height, double? width}) {
-  return Container(
-
+Widget customMaterialButton(String title,
+    {Color? color, double? height, double? width}) {
+  return Container(height: height,width: width,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: color ?? buttoncolor, // Default color (blue)
+        backgroundColor: color ?? buttoncolor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.0), // Border radius
+          borderRadius: BorderRadius.circular(25.0),
         ),
       ),
-      onPressed: () {
-        // Add your onPressed functionality here
-      },
+      onPressed: () {},
       child: Text(
         title,
         style: TextStyle(color: Colors.white),
@@ -23,5 +19,3 @@ Widget customMaterialButton(String title, {Color? color, double? height, double?
     ),
   );
 }
-
-
