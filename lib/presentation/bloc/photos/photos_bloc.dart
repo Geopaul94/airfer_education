@@ -20,7 +20,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
        
 //           emit(ImageLoaded(state is ImageLoaded ? (state as ImageLoaded).images : [], true));
 //         } else {
-//           emit(
+          
+//   // Swap the first two images in the updatedImages list
+     
+
+          
+
+// emit(
 //             ImageLoaded(
 //               state is ImageLoaded ? (state as ImageLoaded).images + images : images,
 //               false, 
@@ -59,7 +65,10 @@ class ImageBloc extends Bloc<ImageEvent, ImageState> {
           emit(ImageLoaded(state is ImageLoaded ? (state as ImageLoaded).images.reversed.toList() : [], true));
         } else {
           final updatedImages = state is ImageLoaded ? (state as ImageLoaded).images + images : images;
-          emit(
+        
+
+
+ emit(
             ImageLoaded(
               updatedImages.reversed.toList(),
               false, 
@@ -75,3 +84,52 @@ class ImageBloc extends Bloc<ImageEvent, ImageState> {
     });
   }
 }
+
+
+
+//swapping first two images 
+
+// class ImageBloc extends Bloc<ImageEvent, ImageState> {
+//   final PexelsApiService pexelsApiService;
+//   int page = 1;
+//   bool isFetching = false;
+
+//   ImageBloc(this.pexelsApiService) : super(ImageLoading()) {
+//     on<LoadImages>((event, emit) async {
+//       if (isFetching) return;
+//       isFetching = true;
+
+//       try {
+//         final images = await pexelsApiService.fetchClothingModelImages(event.page);
+//         if (images.isEmpty) {
+       
+//           emit(ImageLoaded(state is ImageLoaded ? (state as ImageLoaded).images : [], true));
+//         } else {
+          
+//   // Swap the first two images in the updatedImages list
+     
+//       final updatedImages = state is ImageLoaded ? (state as ImageLoaded).images + images : images;
+
+//           if (updatedImages.length > 1) {
+//             final temp = updatedImages[0];
+//             updatedImages[0] = updatedImages[1];
+//             updatedImages[1] = temp;
+//           }
+          
+
+// emit(
+//             ImageLoaded(
+//               state is ImageLoaded ? (state as ImageLoaded).images + images : images,
+//               false, 
+//             ),
+//           );
+//           page++; 
+//         }
+//       } catch (error) {
+//         emit(ImageError());
+//       } finally {
+//         isFetching = false;
+//       }
+//     });
+//   }
+// }
