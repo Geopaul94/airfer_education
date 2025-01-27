@@ -1,5 +1,4 @@
 import 'package:airfer_education/presentation/widgets/CustomBottomNav.dart';
-import 'package:airfer_education/presentation/widgets/custom_image_container.dart';
 import 'package:airfer_education/presentation/widgets/customealertbox.dart';
 import 'package:airfer_education/presentation/widgets/headline_widget.dart';
 import 'package:airfer_education/presentation/widgets/loading_animation_widgets.dart';
@@ -17,6 +16,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gallery_saver_plus/gallery_saver.dart';
+import 'package:airfer_education/data/model/photo_model.dart';
+import 'package:airfer_education/presentation/widgets/price_container.dart';
+import 'package:airfer_education/utilities/functions/dress_caption.dart';
+import 'package:airfer_education/utilities/functions/dress_code.dart';
+import 'package:airfer_education/utilities/functions/random_price.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 
@@ -204,10 +208,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 downloadImageToGallery(image.imageUrl);
                               }
                             },
-                            child: imageContainer(image: image),
+                            child: customeimageContainer(index, image) 
                           );
                         } else {
-                          return Container(
+                          return SizedBox(
                               height: 300.h,
                               width: 180.w,
                               child: SpinningLine());
@@ -221,6 +225,71 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           );
+  }
+
+  Container customeimageContainer(int index, ImageModel image) {
+    return Container(
+    decoration: BoxDecoration(
+      borderRadius:
+          BorderRadius.all(Radius.circular(20)),
+      color: Colors.white,
+    ),
+    height: index % 2 == 0 ? 300 : 380,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(
+          horizontal: 5.0),
+      child: Column(
+        crossAxisAlignment:
+            CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius:
+                    BorderRadius.circular(20),
+                child: Image.network(
+                  image.imageUrl,
+                  height:
+                      index % 2 == 0 ? 230 : 280,
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                ),
+              ),
+              Positioned(
+                top: 8,
+                left: 8,
+                child: priceContainer(
+                  getRandomPrice(),
+                  color: const Color.fromARGB(
+                      200, 158, 158, 158),
+                  height: 35.h,
+                  width: 40.w,
+                ),
+              ),
+            ],
+          ),
+          h10,
+          Row(
+            children: [
+              CustomText(
+                text: getRandomDressCaption(),
+                color: const Color.fromARGB(
+                    182, 0, 0, 0),
+              ),
+              Spacer(),
+              Icon(Icons.more_horiz),
+            ],
+          ),
+          CustomText(
+            text: getRandomDressCode(),
+            color:
+                const Color.fromARGB(182, 0, 0, 0),
+            fontSize: 14.sp,
+          ),
+        ],
+      ),
+    ),
+                         );
   }
 
   // Request storage permission
